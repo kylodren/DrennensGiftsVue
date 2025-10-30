@@ -73,4 +73,3 @@ The dev server runs at `http://localhost:5173/` with hot reload for rapid develo
 
 ---
 
-*Bringing Maritime History Home* 🏮

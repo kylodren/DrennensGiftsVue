@@ -22,7 +22,7 @@ const lighthouseProducts = productsStore.getProductsByCategory('lighthouse')
     </header>
 
     <div class="intro-text">
-      <p>Welcome to our exclusive Lighthouse Collection featuring meticulously crafted replicas of the historic Concord Lighthouse in Havre de Grace, Maryland. Each lighthouse is equipped with LED lighting and includes a detailed replica of the famous John O'Neill Battery cannon, bringing maritime history to life in your home.</p>
+      <p>Welcome to our exclusive Lighthouse Collection featuring meticulously crafted replicas of the historic Concord Lighthouse in Havre de Grace, Maryland. Each lighthouse is equipped with LED lighting and includes a detailed replica of the famous John O'Neill Battery cannon.</p>
     </div>
 
     <div class="products-grid">
@@ -34,7 +34,7 @@ const lighthouseProducts = productsStore.getProductsByCategory('lighthouse')
     </div>
 
     <footer class="footer">
-      <p>&copy; 2025 Drennen's Gifts. All rights reserved. | Bringing Maritime History Home</p>
+      <p>&copy; 2025 Drennen's Gifts. All rights reserved.</p>
     </footer>
   </div>
 </template>

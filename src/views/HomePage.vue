@@ -21,7 +21,7 @@ const emit = defineEmits(['navigate-to-lighthouses'])
         </h2>
         <img src="/SmallLighthouseWithCannon.jpg" alt="Lighthouse Collection Preview" class="lighthouse-preview">
         <p class="store-description">
-          Discover our exquisite collection of LED lighthouse replicas, featuring authentic details of historic landmarks. Each piece is carefully crafted to capture the maritime heritage and coastal beauty that has guided sailors for generations.
+          Discover our exquisite collection of LED lighthouse replicas, featuring authentic details of historic landmarks. Each piece is carefully crafted to capture the coastal beauty that has guided sailors for generations.
         </p>
         <button @click="$emit('navigate-to-lighthouses')" class="store-link">
           Explore Lighthouse Collection →
