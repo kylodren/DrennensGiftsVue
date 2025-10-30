@@ -15,7 +15,10 @@ const emit = defineEmits(['navigate-to-lighthouses'])
       </div>
 
       <div class="store-section">
-        <h2 class="store-title">🏮 Lighthouse Collection</h2>
+        <h2 class="store-title">
+          <img src="/concord-lighthouse-icon.svg" alt="Lighthouse" class="lighthouse-icon"> 
+          Lighthouse Collection
+        </h2>
         <img src="/SmallLighthouseWithCannon.jpg" alt="Lighthouse Collection Preview" class="lighthouse-preview">
         <p class="store-description">
           Discover our exquisite collection of LED lighthouse replicas, featuring authentic details of historic landmarks. Each piece is carefully crafted to capture the maritime heritage and coastal beauty that has guided sailors for generations.
@@ -93,6 +96,16 @@ h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.lighthouse-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .store-description {

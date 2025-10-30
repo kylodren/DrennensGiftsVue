@@ -14,7 +14,10 @@ const lighthouseProducts = productsStore.getProductsByCategory('lighthouse')
       <button @click="$emit('navigate-to-home')" class="back-link">
         ← Back to Drennen's Gifts
       </button>
-      <h1>🏮 Lighthouse Collection</h1>
+      <h1>
+        <img src="/concord-lighthouse-icon.svg" alt="Lighthouse" class="lighthouse-icon">
+        Lighthouse Collection
+      </h1>
       <p class="subtitle">Authentic LED Lighthouse Replicas</p>
     </header>
 
@@ -73,6 +76,16 @@ h1 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.lighthouse-icon {
+  width: 3rem;
+  height: 3rem;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .subtitle {
