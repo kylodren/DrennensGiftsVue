@@ -6,7 +6,7 @@ export const useProductsStore = defineStore('products', () => {
     {
       id: 'large-lighthouse',
       name: '10" LED Concord Lighthouse',
-      price: 40.00,
+      price: 39.99,
       image: '/Large-Lighthouse-Vignette-600px.jpg',
       media: [
         { type: 'image', url: '/Large-Lighthouse-Vignette-600px.jpg' }, 
@@ -26,7 +26,7 @@ export const useProductsStore = defineStore('products', () => {
     {
       id: 'small-lighthouse',
       name: '5" LED Concord Lighthouse',
-      price: 25.00,
+      price: 24.99,
       image: '/Small-Lighthouse-vignette-600px.jpg',
       media: [
         { type: 'image', url: '/Small-Lighthouse-vignette-600px.jpg' },
