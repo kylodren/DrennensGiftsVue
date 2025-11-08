@@ -15,6 +15,13 @@ const props = defineProps({
 const currentIndex = ref(0)
 const isLightboxOpen = ref(false)
 
+// Touch/swipe handling
+const touchStartX = ref(0)
+const touchEndX = ref(0)
+const touchStartY = ref(0)
+const touchEndY = ref(0)
+const isDragging = ref(false)
+
 const nextMedia = () => {
   currentIndex.value = (currentIndex.value + 1) % props.media.length
 }
@@ -30,7 +37,8 @@ const goToMedia = (index) => {
 const currentMedia = () => props.media[currentIndex.value]
 
 const openLightbox = () => {
-  if (currentMedia().type === 'image') {
+  // Only open if it wasn't a drag/swipe gesture
+  if (!isDragging.value && currentMedia().type === 'image') {
     isLightboxOpen.value = true
   }
 }
@@ -56,11 +64,61 @@ const prevInLightbox = () => {
   }
   currentIndex.value = prevIdx
 }
+
+const handleTouchStart = (e) => {
+  touchStartX.value = e.touches[0].clientX
+  touchStartY.value = e.touches[0].clientY
+  isDragging.value = false
+}
+
+const handleTouchMove = (e) => {
+  touchEndX.value = e.touches[0].clientX
+  touchEndY.value = e.touches[0].clientY
+  
+  // Detect if user is dragging (moved more than 10px)
+  const deltaX = Math.abs(touchEndX.value - touchStartX.value)
+  const deltaY = Math.abs(touchEndY.value - touchStartY.value)
+  
+  if (deltaX > 10 || deltaY > 10) {
+    isDragging.value = true
+  }
+}
+
+const handleTouchEnd = () => {
+  if (!isDragging.value) {
+    return // It was a tap, not a swipe
+  }
+  
+  const deltaX = touchStartX.value - touchEndX.value
+  const deltaY = Math.abs(touchStartY.value - touchEndY.value)
+  const minSwipeDistance = 50
+  
+  // Only trigger swipe if horizontal movement is greater than vertical
+  if (Math.abs(deltaX) > deltaY && Math.abs(deltaX) > minSwipeDistance) {
+    if (deltaX > 0) {
+      // Swiped left - go to next
+      nextMedia()
+    } else {
+      // Swiped right - go to previous
+      prevMedia()
+    }
+  }
+  
+  // Reset after a short delay to allow click detection
+  setTimeout(() => {
+    isDragging.value = false
+  }, 50)
+}
 </script>
 
 <template>
   <div class="carousel">
-    <div class="carousel-main">
+    <div 
+      class="carousel-main"
+      @touchstart="handleTouchStart"
+      @touchmove="handleTouchMove"
+      @touchend="handleTouchEnd"
+    >
       <img 
         v-if="currentMedia().type === 'image'"
         :src="currentMedia().url" 
@@ -157,6 +215,8 @@ const prevInLightbox = () => {
   overflow: hidden;
   border-radius: 12px;
   background: #f5f5f5;
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
 }
 
 .carousel-image {
