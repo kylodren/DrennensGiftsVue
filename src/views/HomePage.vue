@@ -15,13 +15,18 @@ const emit = defineEmits(['navigate-to-lighthouses'])
       </div>
 
       <div class="store-section">
-        <h2 class="store-title">
+        <h2 class="store-title ">
           <img src="/concord-lighthouse-icon.svg" alt="Lighthouse" class="lighthouse-icon"> 
-          Lighthouse Collection
+          HdG Concord Lighthouse
         </h2>
-        <img src="/SmallLighthouseWithCannon.jpg" alt="Lighthouse Collection Preview" class="lighthouse-preview">
+        <img 
+          src="/SmallLighthouseWithCannon.jpg" 
+          alt="Lighthouse Collection Preview" 
+          class="lighthouse-preview"
+          @click="$emit('navigate-to-lighthouses')"
+        >
         <p class="store-description">
-          Discover our exquisite collection of LED lighthouse replicas, featuring authentic details of historic landmarks. Each piece is carefully crafted to capture the coastal beauty that has guided sailors for generations.
+          Discover our exquisite collection of LED lighthouse replicas, featuring authentic details of historic landmarks. Each piece is carefully crafted to capture the coastal beauty that has guided sailors for generations, and includes a detailed replica of the John O'Neill Battery cannon.
         </p>
         <button @click="$emit('navigate-to-lighthouses')" class="store-link">
           Explore Lighthouse Collection →
@@ -147,6 +152,13 @@ h1 {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   margin: 2rem auto;
   display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lighthouse-preview:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {

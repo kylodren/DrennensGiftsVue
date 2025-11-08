@@ -4,6 +4,7 @@ import { ref, computed } from 'vue'
 export const useCartStore = defineStore('cart', () => {
   // State
   const items = ref([])
+  const isCartOpen = ref(false)
 
   // Getters
   const totalItems = computed(() => {
@@ -33,6 +34,21 @@ export const useCartStore = defineStore('cart', () => {
     
     // Save to localStorage
     saveToStorage()
+    
+    // Open the cart
+    isCartOpen.value = true
+  }
+
+  const openCart = () => {
+    isCartOpen.value = true
+  }
+
+  const closeCart = () => {
+    isCartOpen.value = false
+  }
+
+  const toggleCart = () => {
+    isCartOpen.value = !isCartOpen.value
   }
 
   const removeFromCart = (productId) => {
@@ -76,12 +92,16 @@ export const useCartStore = defineStore('cart', () => {
 
   return {
     items,
+    isCartOpen,
     totalItems,
     totalPrice,
     cartTotal,
     addToCart,
     removeFromCart,
     updateQuantity,
-    clearCart
+    clearCart,
+    openCart,
+    closeCart,
+    toggleCart
   }
 })

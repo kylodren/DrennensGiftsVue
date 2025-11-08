@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 
 export const useConfigStore = defineStore('config', () => {
   // Environment - can be 'sandbox' or 'production'
-  const environment = ref('sandbox') // Change this to 'production' when ready to go live
+  const environment = ref('production') // Change this to 'production' when ready to go live
 
   // PayPal Client IDs
   const paypalClientIds = ref({

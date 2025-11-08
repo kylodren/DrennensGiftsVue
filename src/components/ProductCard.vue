@@ -73,12 +73,13 @@ const addToCart = () => {
 }
 
 .product-media {
-  width: 350px;
+  width: 400px;
   flex-shrink: 0;
   border-right: 3px solid #3498db;
   display: flex;
   align-items: center;
   background: #f5f5f5;
+  padding-left: 1.5rem;
 }
 
 .product-image-fallback {
@@ -180,8 +181,8 @@ const addToCart = () => {
   
   .product-media {
     width: 100%;
-    border-right: none;
-    border-bottom: 3px solid #3498db;
+    /* remove any border on mobile to avoid overlapping carousel dots */
+    border: none;
     min-height: 400px;
   }
   

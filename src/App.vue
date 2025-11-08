@@ -11,7 +11,6 @@ const cartStore = useCartStore()
 const configStore = useConfigStore()
 
 const currentView = ref('home') // 'home' or 'lighthouse'
-const showCart = ref(false)
 
 const navigateToLighthouses = () => {
   currentView.value = 'lighthouse'
@@ -19,10 +18,6 @@ const navigateToLighthouses = () => {
 
 const navigateToHome = () => {
   currentView.value = 'home'
-}
-
-const toggleCart = () => {
-  showCart.value = !showCart.value
 }
 </script>
 
@@ -41,7 +36,7 @@ const toggleCart = () => {
           <div v-if="configStore.environment === 'sandbox'" class="sandbox-indicator">
             🧪 SANDBOX
           </div>
-          <button @click="toggleCart" class="cart-button">
+          <button @click="cartStore.toggleCart" class="cart-button">
             🛒 Cart ({{ cartStore.totalItems }})
           </button>
         </div>
@@ -55,7 +50,7 @@ const toggleCart = () => {
     </main>
 
     <!-- Cart Sidebar -->
-    <Cart v-if="showCart" @close="toggleCart" />
+    <Cart v-if="cartStore.isCartOpen" @close="cartStore.closeCart" />
   </div>
 </template>
 

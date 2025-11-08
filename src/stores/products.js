@@ -17,8 +17,8 @@ export const useProductsStore = defineStore('products', () => {
       features: [
         'Majestic 10-inch scale replica',
         'LED lighting system with multiple color modes',
-        'Adjustable brightness and playlist mode',
-        'Detailed John O\'Neill Battery cannon replica included',        
+        'Detailed John O\'Neill Battery cannon replica included',         
+        'Ideal for desk, shelf, or bedside display'       
       ],
       category: 'lighthouse',
       inStock: true
@@ -38,10 +38,8 @@ export const useProductsStore = defineStore('products', () => {
       features: [
         'Compact 5-inch scale replica',
         'LED lighting system with multiple color modes',
-        'Adjustable brightness and playlist mode',
         'Miniature John O\'Neill Battery cannon included',
-        'Precision-crafted details',
-        'Ideal for desk, shelf, or bedside display'
+        'Ideal for desk, shelf, window sill or bedside display'
       ],
       category: 'lighthouse',
       inStock: true

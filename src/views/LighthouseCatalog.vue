@@ -14,7 +14,7 @@ const lighthouseProducts = productsStore.getProductsByCategory('lighthouse')
     <header class="catalog-header">
       <h1>
         <img src="/concord-lighthouse-icon.svg" alt="Lighthouse" class="lighthouse-icon">
-        Lighthouse Collection
+        Concord Lighthouse Collection
       </h1>
       <p class="subtitle">Authentic LED Lighthouse Replicas</p>
     </header>
@@ -134,5 +134,11 @@ h1 {
   .products-grid {
     gap: 2rem;
   }
+  
+  /* add extra left spacing for the lighthouse icon on small screens */
+  .lighthouse-icon {
+    margin-left: 1rem;
+  }
 }
+
 </style>
