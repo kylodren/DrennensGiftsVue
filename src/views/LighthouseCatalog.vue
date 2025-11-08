@@ -26,7 +26,13 @@ onMounted(() => {
     </header>
 
     <div class="intro-text">
-      <p>Welcome to our exclusive Lighthouse Collection featuring meticulously crafted replicas of the historic Concord Lighthouse in Havre de Grace, Maryland. Each lighthouse is equipped with LED lighting and includes a detailed replica of the famous John O'Neill Battery cannon.</p>
+      <p class="intro-main">Welcome to our exclusive Lighthouse Collection featuring meticulously crafted replicas of the historic Concord Lighthouse in Havre de Grace, Maryland. Each lighthouse features LED lighting with multiple color modes and includes a detailed replica of the famous <b>John O'Neill Battery</b> cannon. Choose the perfect size for your space!</p>
+      
+      <div class="size-highlight">
+        <h4>Available in Two Sizes</h4>
+      </div>
+      
+      
     </div>
 
     <div class="products-grid">
@@ -115,6 +121,61 @@ h1 {
   line-height: 1.8;
 }
 
+.intro-main {
+  margin-bottom: 1.5rem;
+}
+
+.size-highlight {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  border: 2px solid #81c784;
+}
+
+.size-highlight h3 {
+  color: #2e7d32;
+  font-size: 1.4rem;
+  margin: 0 0 1rem 0;
+  font-weight: bold;
+}
+
+.size-options {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.size-option {
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-width: 140px;
+}
+
+.size-label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.size-price {
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.intro-details {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
 .products-grid {
   display: flex;
   flex-direction: column;
@@ -152,6 +213,27 @@ h1 {
   .intro-text {
     font-size: 0.95rem;
     padding: 1.5rem;
+  }
+  
+  .size-highlight h3 {
+    font-size: 1.2rem;
+  }
+  
+  .size-options {
+    gap: 1rem;
+  }
+  
+  .size-option {
+    min-width: 120px;
+    padding: 0.75rem 1rem;
+  }
+  
+  .size-label {
+    font-size: 1rem;
+  }
+  
+  .size-price {
+    font-size: 1.15rem;
   }
   
   .products-grid {

@@ -16,7 +16,7 @@ export const useProductsStore = defineStore('products', () => {
       description: 'This stunning 10-inch replica captures the majesty of the historic Concord Lighthouse that has stood sentinel over the Chesapeake Bay in Havre de Grace, Maryland since 1827. Built to withstand the test of time, this lighthouse guided countless vessels through the waters where the Susquehanna River meets the bay.',
       features: [
         'Majestic 10-inch scale replica',
-        'LED lighting system with multiple color modes',
+        'LED lighting system with multiple color modes and power adapter',
         'Detailed John O\'Neill Battery cannon replica included',         
         'Ideal for desk, shelf, or bedside display'       
       ],
@@ -37,7 +37,7 @@ export const useProductsStore = defineStore('products', () => {
       description: 'A charming 5-inch version of the beloved Concord Lighthouse, perfect for smaller spaces while maintaining all the authentic details of its larger counterpart. This compact replica brings the same historical significance and coastal charm of Havre de Grace\'s famous landmark to any room.',
       features: [
         'Compact 5-inch scale replica',
-        'LED lighting system with multiple color modes',
+        'LED lighting system with multiple color modes and power adapter',
         'Miniature John O\'Neill Battery cannon included',
         'Ideal for desk, shelf, window sill or bedside display'
       ],
