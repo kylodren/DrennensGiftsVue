@@ -105,6 +105,10 @@ onMounted(() => {
               <span>Shipping:</span>
               <span>${{ cartStore.shipping.toFixed(2) }}</span>
             </div>
+            <div class="shipping-info">
+              <span class="delivery-icon">🚚</span>
+              <span>Estimated delivery: 5 days</span>
+            </div>
             <div class="summary-row total-row">
               <strong>Total:</strong>
               <strong>${{ cartStore.cartTotal }}</strong>
@@ -296,6 +300,22 @@ onMounted(() => {
   margin-bottom: 0.75rem;
   color: #495057;
   font-size: 0.95rem;
+}
+
+.shipping-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: #e8f5e9;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  color: #2e7d32;
+}
+
+.delivery-icon {
+  font-size: 1.1rem;
 }
 
 .summary-row.total-row {
