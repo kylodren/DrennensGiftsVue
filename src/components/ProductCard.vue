@@ -183,6 +183,10 @@ const addToCart = () => {
     width: 100%;
     /* remove any border on mobile to avoid overlapping carousel dots */
     border: none;
+    /* remove left padding on mobile for full-width display */
+    padding-left: 0;
+    /* add top padding on mobile for breathing room */
+    padding-top: 1rem;
     min-height: 400px;
   }
   

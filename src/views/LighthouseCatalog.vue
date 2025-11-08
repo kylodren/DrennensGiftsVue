@@ -128,16 +128,28 @@ h1 {
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
+    flex-wrap: wrap;
+  }
+  
+  .lighthouse-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    /* add extra left spacing for the lighthouse icon on small screens */
+    margin-left: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .intro-text {
+    font-size: 0.95rem;
+    padding: 1.5rem;
   }
   
   .products-grid {
     gap: 2rem;
-  }
-  
-  /* add extra left spacing for the lighthouse icon on small screens */
-  .lighthouse-icon {
-    margin-left: 1rem;
   }
 }
 

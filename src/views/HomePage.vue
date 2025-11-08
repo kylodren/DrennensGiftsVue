@@ -162,20 +162,54 @@ h1 {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
   }
   
   .main-content {
-    padding: 2rem;
+    padding: 1.5rem;
+  }
+  
+  .welcome-text {
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
   
   .store-section {
-    padding: 2rem;
+    padding: 1.5rem;
   }
   
   .store-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .lighthouse-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .lighthouse-preview {
+    max-width: 100%;
+    width: 100%;
+    margin: 1.5rem auto;
+  }
+  
+  .store-description {
+    font-size: 0.95rem;
+  }
+  
+  .store-link {
+    font-size: 1rem;
+    padding: 12px 24px;
   }
 }
 </style>
