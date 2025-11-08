@@ -97,11 +97,17 @@ onMounted(() => {
           </div>
           
           <div class="cart-summary">
-            <div class="total-items">
-              <strong>Total Items: {{ cartStore.totalItems }}</strong>
+            <div class="summary-row">
+              <span>Subtotal ({{ cartStore.totalItems }} items):</span>
+              <span>${{ cartStore.subtotal }}</span>
             </div>
-            <div class="total-price">
-              <strong>Total: ${{ cartStore.cartTotal }}</strong>
+            <div class="summary-row">
+              <span>Shipping:</span>
+              <span>${{ cartStore.shipping.toFixed(2) }}</span>
+            </div>
+            <div class="summary-row total-row">
+              <strong>Total:</strong>
+              <strong>${{ cartStore.cartTotal }}</strong>
             </div>
             <div class="paypal-checkout">
               <div id="paypal-checkout-container"></div>
@@ -281,6 +287,23 @@ onMounted(() => {
   border-top: 2px solid #eee;
   padding: 1.5rem 1rem;
   background: #f8f9fa;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  color: #495057;
+  font-size: 0.95rem;
+}
+
+.summary-row.total-row {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 2px solid #dee2e6;
+  font-size: 1.1rem;
+  color: #2c3e50;
 }
 
 .total-items, .total-price {

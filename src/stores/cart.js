@@ -5,6 +5,7 @@ export const useCartStore = defineStore('cart', () => {
   // State
   const items = ref([])
   const isCartOpen = ref(false)
+  const shippingCost = 9.99
 
   // Getters
   const totalItems = computed(() => {
@@ -15,8 +16,16 @@ export const useCartStore = defineStore('cart', () => {
     return items.value.reduce((total, item) => total + (item.price * item.quantity), 0)
   })
 
-  const cartTotal = computed(() => {
+  const subtotal = computed(() => {
     return totalPrice.value.toFixed(2)
+  })
+
+  const shipping = computed(() => {
+    return items.value.length > 0 ? shippingCost : 0
+  })
+
+  const cartTotal = computed(() => {
+    return (totalPrice.value + shipping.value).toFixed(2)
   })
 
   // Actions
@@ -95,6 +104,8 @@ export const useCartStore = defineStore('cart', () => {
     isCartOpen,
     totalItems,
     totalPrice,
+    subtotal,
+    shipping,
     cartTotal,
     addToCart,
     removeFromCart,
