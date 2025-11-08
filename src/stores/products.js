@@ -43,7 +43,8 @@ export const useProductsStore = defineStore('products', () => {
       ],
       category: 'lighthouse',
       inStock: true
-    },
+    }
+    /* ,
     {
       id: 'test-lighthouse',
       name: 'Test Lighthouse Item',
@@ -68,7 +69,7 @@ export const useProductsStore = defineStore('products', () => {
       inStock: true,
       isTestItem: true,
       paypalButtonId: 'T7686CD7BQGXE'
-    }
+    } */
   ])
 
   const getProductById = (id) => {

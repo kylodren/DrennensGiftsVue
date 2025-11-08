@@ -44,12 +44,10 @@ const handleOverlayClick = (event) => {
         <div class="modal-body">
           <div class="modal-icon">
             <div class="success-checkmark">
-              <div class="check-icon">
-                <span class="icon-line line-tip"></span>
-                <span class="icon-line line-long"></span>
-                <div class="icon-circle"></div>
-                <div class="icon-fix"></div>
-              </div>
+              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+              </svg>
             </div>
           </div>
           <p v-if="message" class="modal-message">{{ message }}</p>
@@ -151,125 +149,51 @@ const handleOverlayClick = (event) => {
 .success-checkmark {
   width: 80px;
   height: 80px;
+  margin: 0 auto;
+}
+
+.checkmark {
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   display: block;
-  stroke-width: 2;
+  stroke-width: 3;
   stroke: #27ae60;
   stroke-miterlimit: 10;
-  margin: 0 auto 1rem;
   box-shadow: inset 0px 0px 0px #27ae60;
-  animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+  animation: scale 0.3s ease-in-out;
 }
 
-.success-checkmark .check-icon {
-  width: 56px;
-  height: 56px;
-  position: relative;
-  border-radius: 50%;
-  box-sizing: content-box;
-  border: 4px solid #27ae60;
-  margin: 8px auto;
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 3;
+  stroke: #27ae60;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
 
-.success-checkmark .check-icon::before {
-  top: 3px;
-  left: -2px;
-  width: 30px;
-  transform-origin: 100% 50%;
-  border-radius: 100px 0 0 100px;
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke: #27ae60;
+  stroke-width: 3;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.4s forwards;
 }
 
-.success-checkmark .check-icon::after {
-  top: 0;
-  left: 30px;
-  width: 60px;
-  transform-origin: 0 50%;
-  border-radius: 0 100px 100px 0;
-  animation: rotate-circle 4.25s ease-in;
-}
-
-.success-checkmark .check-icon::before,
-.success-checkmark .check-icon::after {
-  content: '';
-  height: 100px;
-  position: absolute;
-  background: white;
-  transform: rotate(-45deg);
-}
-
-.success-checkmark .icon-line {
-  height: 5px;
-  background-color: #27ae60;
-  display: block;
-  border-radius: 2px;
-  position: absolute;
-  z-index: 10;
-}
-
-.success-checkmark .icon-line.line-tip {
-  top: 46px;
-  left: 14px;
-  width: 25px;
-  transform: rotate(45deg);
-  animation: icon-line-tip 0.75s;
-}
-
-.success-checkmark .icon-line.line-long {
-  top: 38px;
-  right: 8px;
-  width: 47px;
-  transform: rotate(-45deg);
-  animation: icon-line-long 0.75s;
-}
-
-@keyframes icon-line-tip {
-  0% {
-    width: 0;
-    left: 1px;
-    top: 19px;
-  }
-  54% {
-    width: 0;
-    left: 1px;
-    top: 19px;
-  }
-  70% {
-    width: 50px;
-    left: -8px;
-    top: 37px;
-  }
-  84% {
-    width: 17px;
-    left: 21px;
-    top: 48px;
-  }
+@keyframes stroke {
   100% {
-    width: 25px;
-    left: 14px;
-    top: 45px;
+    stroke-dashoffset: 0;
   }
 }
 
-@keyframes icon-line-long {
-  0% {
-    width: 0;
-    right: 46px;
-    top: 54px;
+@keyframes scale {
+  0%, 100% {
+    transform: scale(1);
   }
-  65% {
-    width: 0;
-    right: 46px;
-    top: 54px;
-  }
-  84% {
-    width: 55px;
-    right: 0px;
-    top: 35px;
-  }
-  100% {
-    width: 47px;
-    right: 8px;
-    top: 38px;
+  50% {
+    transform: scale(1.1);
   }
 }
 
