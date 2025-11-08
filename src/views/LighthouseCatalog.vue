@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted } from 'vue'
 import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
 import ComparisonSection from '../components/ComparisonSection.vue'
@@ -7,6 +8,11 @@ const emit = defineEmits(['navigate-to-home'])
 const productsStore = useProductsStore()
 
 const lighthouseProducts = productsStore.getProductsByCategory('lighthouse')
+
+// Scroll to top when entering the collection
+onMounted(() => {
+  window.scrollTo(0, 0)
+})
 </script>
 
 <template>
