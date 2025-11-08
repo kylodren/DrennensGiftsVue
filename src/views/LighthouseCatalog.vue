@@ -1,6 +1,7 @@
 <script setup>
 import { useProductsStore } from '../stores/products'
 import ProductCard from '../components/ProductCard.vue'
+import ComparisonSection from '../components/ComparisonSection.vue'
 
 const emit = defineEmits(['navigate-to-home'])
 const productsStore = useProductsStore()
@@ -11,9 +12,6 @@ const lighthouseProducts = productsStore.getProductsByCategory('lighthouse')
 <template>
   <div class="container">
     <header class="catalog-header">
-      <button @click="$emit('navigate-to-home')" class="back-link">
-        ← Back to Drennen's Gifts
-      </button>
       <h1>
         <img src="/concord-lighthouse-icon.svg" alt="Lighthouse" class="lighthouse-icon">
         Lighthouse Collection
@@ -33,6 +31,9 @@ const lighthouseProducts = productsStore.getProductsByCategory('lighthouse')
       />
     </div>
 
+    <!-- New gallery sections -->
+    <ComparisonSection />
+ 
     <footer class="footer">
       <p>&copy; 2025 Drennen's Gifts. All rights reserved.</p>
     </footer>

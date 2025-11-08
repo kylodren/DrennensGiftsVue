@@ -1,5 +1,6 @@
 <script setup>
 import { useCartStore } from '../stores/cart'
+import ImageCarousel from './ImageCarousel.vue'
 
 const props = defineProps({
   product: {
@@ -17,7 +18,20 @@ const addToCart = () => {
 
 <template>
   <div class="product-card">
-    <img :src="product.image" :alt="product.name" class="product-image">
+    <div class="product-media">
+      <ImageCarousel 
+        v-if="product.media && product.media.length > 0"
+        :media="product.media" 
+        :alt="product.name"
+      />
+      <img 
+        v-else
+        :src="product.image" 
+        :alt="product.name" 
+        class="product-image-fallback"
+      >
+    </div>
+    
     <div class="product-info">
       <h2 class="product-title">{{ product.name }}</h2>
       <div class="product-price">${{ product.price.toFixed(2) }}</div>
@@ -58,12 +72,19 @@ const addToCart = () => {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-.product-image {
-  width: 300px;
-  height: 400px;
-  object-fit: cover;
-  border-right: 3px solid #3498db;
+.product-media {
+  width: 350px;
   flex-shrink: 0;
+  border-right: 3px solid #3498db;
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+}
+
+.product-image-fallback {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .product-info {
@@ -157,11 +178,15 @@ const addToCart = () => {
     flex-direction: column;
   }
   
-  .product-image {
+  .product-media {
     width: 100%;
-    height: 300px;
     border-right: none;
     border-bottom: 3px solid #3498db;
+    min-height: 400px;
+  }
+  
+  .product-image-fallback {
+    height: auto;
   }
   
   .product-info {

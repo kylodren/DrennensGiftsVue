@@ -5,13 +5,19 @@ export const useProductsStore = defineStore('products', () => {
   const products = ref([
     {
       id: 'large-lighthouse',
-      name: 'Large 10" LED Concord Lighthouse',
+      name: '10" LED Concord Lighthouse',
       price: 40.00,
-      image: '/SmallLighthouseWithCannon.jpg',
-      description: 'This stunning 10-inch replica captures the majesty of the historic Concord Lighthouse that has stood sentinel over the Chesapeake Bay in Havre de Grace, Maryland since 1827. Built to withstand the test of time, this lighthouse guided countless vessels through the treacherous waters where the Susquehanna River meets the bay.',
+      image: '/Large-Lighthouse-Vignette-600px.jpg',
+      media: [
+        { type: 'image', url: '/Large-Lighthouse-Vignette-600px.jpg' }, 
+        { type: 'video', url: '/White-Light.mp4' },
+        { type: 'video', url: '/Single-Playlist-SpedUp.mp4' }
+      ],
+      description: 'This stunning 10-inch replica captures the majesty of the historic Concord Lighthouse that has stood sentinel over the Chesapeake Bay in Havre de Grace, Maryland since 1827. Built to withstand the test of time, this lighthouse guided countless vessels through the waters where the Susquehanna River meets the bay.',
       features: [
-        'Authentic 10-inch scale replica',
-        'LED lighting system',
+        'Majestic 10-inch scale replica',
+        'LED lighting system with multiple color modes',
+        'Adjustable brightness and playlist mode',
         'Detailed John O\'Neill Battery cannon replica included',        
       ],
       category: 'lighthouse',
@@ -19,13 +25,20 @@ export const useProductsStore = defineStore('products', () => {
     },
     {
       id: 'small-lighthouse',
-      name: 'Small 5" LED Concord Lighthouse',
+      name: '5" LED Concord Lighthouse',
       price: 25.00,
-      image: '/SmallLighthouseWithCannon.jpg',
+      image: '/Small-Lighthouse-vignette-600px.jpg',
+      media: [
+        { type: 'image', url: '/Small-Lighthouse-vignette-600px.jpg' },
+        { type: 'video', url: '/White-Light.mp4' },
+        { type: 'video', url: '/Single-Playlist-SpedUp.mp4' }
+        
+      ],
       description: 'A charming 5-inch version of the beloved Concord Lighthouse, perfect for smaller spaces while maintaining all the authentic details of its larger counterpart. This compact replica brings the same historical significance and coastal charm of Havre de Grace\'s famous landmark to any room.',
       features: [
         'Compact 5-inch scale replica',
-        'LED lighting system',
+        'LED lighting system with multiple color modes',
+        'Adjustable brightness and playlist mode',
         'Miniature John O\'Neill Battery cannon included',
         'Precision-crafted details',
         'Ideal for desk, shelf, or bedside display'
@@ -38,6 +51,12 @@ export const useProductsStore = defineStore('products', () => {
       name: 'Test Lighthouse Item',
       price: 1.00,
       image: '/SmallLighthouseWithCannon.jpg',
+      media: [
+        { type: 'image', url: '/SmallLighthouseWithCannon.jpg' },
+        { type: 'video', url: '/Single-Playlist-SpedUp.mp4' },
+        { type: 'image', url: '/Small-Lighthouse-600px.jpg' },
+        { type: 'video', url: '/White-Light.mp4' }
+      ],
       description: 'This is our test item to verify the payment system is working correctly. Same beautiful lighthouse replica as our other products, but offered at a test price for payment processing verification.',
       features: [
         'Test item for payment verification',
