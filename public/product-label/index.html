@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concord Lighthouse Product Label - Drennen's Gifts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .label-container {
+      /* 17:10 aspect ratio for half-sheet label - PORTRAIT */
+      width: 510px;
+      height: 850px;
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      border: 2px solid #223A7A;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative maritime border */
+    .label-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        #0984e3 0px,
+        #0984e3 20px,
+        #ffffff 20px,
+        #ffffff 40px
+      );
+    }
+
+    .label-container::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        #0984e3 0px,
+        #0984e3 20px,
+        #ffffff 20px,
+        #ffffff 40px
+      );
+    }
+
+    .label-header {
+      background: linear-gradient(135deg, #223A7A 0%, #2c4a9e 100%);
+      color: white;
+      padding: 15px 30px;
+      text-align: center;
+      border-bottom: 4px solid #0984e3;
+    }
+
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 3px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .brand-tagline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 1px;
+      opacity: 0.95;
+      color: #ecf0f1;
+    }
+
+    .label-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 25px 30px;
+      gap: 20px;
+    }
+
+    .product-image-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    .product-image {
+      max-width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-info-section {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .product-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #223A7A;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      text-align: center;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #0984e3;
+    }
+
+    .product-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      color: #7f8c8d;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .product-description {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.6;
+      text-align: left;
+      margin-bottom: 15px;
+      flex: 1;
+    }
+
+    .product-features {
+      background: #ecf0f1;
+      padding: 15px 18px;
+      border-radius: 8px;
+      border-left: 4px solid #0984e3;
+    }
+
+    .features-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #223A7A;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .features-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .features-list li {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      color: #555;
+      margin-bottom: 6px;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .features-list li::before {
+      content: '⚓';
+      position: absolute;
+      left: 0;
+      color: #0984e3;
+      font-size: 0.9rem;
+    }
+
+    .label-footer {
+      background: linear-gradient(135deg, #223A7A 0%, #2c4a9e 100%);
+      color: white;
+      padding: 12px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      border-top: 4px solid #0984e3;
+    }
+
+    .footer-location {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-tagline {
+      font-style: italic;
+      opacity: 0.9;
+      letter-spacing: 0.5px;
+    }
+
+    .handcrafted-badge {
+      position: absolute;
+      top: 80px;
+      right: 15px;
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 25px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+      transform: rotate(5deg);
+      z-index: 10;
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      
+      .label-container {
+        box-shadow: none;
+        border: 2px solid #223A7A;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="label-container">
+    <!-- Handcrafted Badge -->
+    <div class="handcrafted-badge">🎁 Handcrafted Gift</div>
+
+    <!-- Header -->
+    <div class="label-header">
+      <div class="brand-name">Drennen's Gifts</div>
+      <div class="brand-tagline">Bringing History Home</div>
+    </div>
+
+    <!-- Body -->
+    <div class="label-body">
+      <!-- Product Image -->
+      <div class="product-image-section">
+        <img src="Large-Lighthouse-Vignette-600px.jpg" alt="LED Concord Lighthouse" class="product-image">
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-info-section">
+        <div>
+          <h2 class="product-title">LED Concord Lighthouse</h2>
+          <p class="product-subtitle">Historic Havre de Grace Replica</p>
+          
+          <p class="product-description">
+            A beautifully crafted replica of the historic Concord Lighthouse that has stood sentinel over the Chesapeake Bay in Havre de Grace, Maryland since 1827. This authentic piece captures the coastal charm and heritage of this beloved landmark.
+          </p>
+        </div>
+
+        <div class="product-features">
+          <div class="features-title">Features</div>
+          <ul class="features-list">
+            <li>LED lighting with multiple color modes</li>
+            <li>Includes power adapter</li>
+            <li>Detailed John O'Neill Battery cannon replica</li>
+            <li>Perfect for desk, shelf, or bedside display</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="label-footer">
+      <div class="footer-location">
+        <span>⚓</span>
+        <span>Havre de Grace, Maryland</span>
+      </div>
+      <div class="footer-tagline">Premium Collectibles & Unique Gifts</div>
+    </div>
+  </div>
+</body>
+</html>

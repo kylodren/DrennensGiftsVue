@@ -1,6 +1,6 @@
 // PayPal Service for handling checkout
 export class PayPalService {
-  static async createOrder(cartItems) {
+  static async createOrder(cartItems, shippingCost = 0) {
     // Ensure PayPal SDK is loaded
     if (typeof window.paypal === 'undefined') {
       throw new Error('PayPal SDK not loaded')
@@ -9,14 +9,21 @@ export class PayPalService {
     return window.paypal.Buttons({
       createOrder: function(data, actions) {
         // Calculate total and prepare purchase units
+        const itemTotal = PayPalService.calculateItemTotal(cartItems)
+        const total = (parseFloat(itemTotal) + parseFloat(shippingCost)).toFixed(2)
+        
         const purchaseUnits = [{
           amount: {
             currency_code: 'USD',
-            value: PayPalService.calculateTotal(cartItems),
+            value: total,
             breakdown: {
               item_total: {
                 currency_code: 'USD',
-                value: PayPalService.calculateTotal(cartItems)
+                value: itemTotal
+              },
+              shipping: {
+                currency_code: 'USD',
+                value: shippingCost.toFixed(2)
               }
             }
           },
@@ -69,13 +76,13 @@ export class PayPalService {
     })
   }
 
-  static calculateTotal(cartItems) {
+  static calculateItemTotal(cartItems) {
     return cartItems
       .reduce((total, item) => total + (item.price * item.quantity), 0)
       .toFixed(2)
   }
 
-  static renderPayPalButton(containerId, cartItems, onSuccess) {
+  static renderPayPalButton(containerId, cartItems, shippingCost = 0, onSuccess) {
     if (typeof window.paypal === 'undefined') {
       console.error('PayPal SDK not loaded')
       return
@@ -90,14 +97,21 @@ export class PayPalService {
       },
       
       createOrder: function(data, actions) {
+        const itemTotal = PayPalService.calculateItemTotal(cartItems)
+        const total = (parseFloat(itemTotal) + parseFloat(shippingCost)).toFixed(2)
+        
         const purchaseUnits = [{
           amount: {
             currency_code: 'USD',
-            value: PayPalService.calculateTotal(cartItems),
+            value: total,
             breakdown: {
               item_total: {
                 currency_code: 'USD',
-                value: PayPalService.calculateTotal(cartItems)
+                value: itemTotal
+              },
+              shipping: {
+                currency_code: 'USD',
+                value: shippingCost.toFixed(2)
               }
             }
           },

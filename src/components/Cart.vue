@@ -39,6 +39,7 @@ const renderPayPalButton = async () => {
   PayPalService.renderPayPalButton(
     'paypal-checkout-container',
     cartStore.items,
+    cartStore.shipping,
     (orderData, transaction) => {
       // Store payment details for modal
       paymentDetails.value = {
